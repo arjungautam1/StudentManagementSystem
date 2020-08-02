@@ -1,47 +1,29 @@
 package com.texas.student.management.service.routine;
 
 import com.texas.student.management.model.routine.Routine;
-import com.texas.student.management.repository.routine.RoutineRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
+import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
-@Service
-public class RoutineService {
+public interface RoutineService {
 
-    private RoutineRepository repository;
-    /*For post method*/
+    void saveRoutine(Routine routine);
 
-    @Autowired
-    public RoutineService(RoutineRepository repository) {
-        this.repository = repository;
-    }
+    Optional<Routine> getRoutineById(Long id);
 
-    public void saveRoutine(Routine routine)
-    {
-         repository.save(routine);
-    }
-    /*For get method */
-    public Optional<Routine> getRoutineById(Long id)
-    {
-        return repository.findById(id);
-    }
-    /*for delete method*/
-    public String deleteRoutine(Long id)
-    {
-        repository.deleteById(id);
-        return "Routine of id "+id+"deleted";
-    }
-    /*For update method*/
-    public Routine updateRoutine(Routine routine)
-    {
-        Routine existingRoutine=repository.findById(routine.getId()).orElse(new Routine());
-        existingRoutine.setDay(routine.getDay());
-        existingRoutine.setCourse(routine.getCourse());
-        existingRoutine.setStartTime(routine.getStartTime());
-        existingRoutine.setEndTime(routine.getEndTime());
-        existingRoutine.setTeacher(routine.getTeacher());
-        return repository.save(existingRoutine);
-    }
+    String deleteRoutine(Long id);
+
+    List<Routine> getAll();
+
+    void updateRoutine(Long id, Routine routine);
+
+    List<Routine> getByGradeId(Long id);
+
+    List<Routine> getRoutineByDay(Long id , Routine.Day day);
+
+  List<Routine> getCurrentRoutine(Long id, Routine.Day day, String startTime);
+
+
+
 }

@@ -1,10 +1,15 @@
 package com.texas.student.management.model.routine;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.texas.student.management.model.course.Course;
 import com.texas.student.management.model.grade.Grade;
 import com.texas.student.management.model.user.CourseTeacher;
 
+//Routine Entity
+
 import javax.persistence.*;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 /*
 *
@@ -35,13 +40,13 @@ public class Routine {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private long id;
+    private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "grade_id", nullable = false)
     private Grade grade;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "course_id", nullable = false)
     private Course course;
 
@@ -50,19 +55,40 @@ public class Routine {
     @JoinColumn(name = "teacher_id", nullable = false)
     private CourseTeacher teacher;
 
-    private long startTime;
-    private long endTime;
+    /*String , publish, duration */
+    private String startTime;
+    private String endTime;
+
     private Day day;
-    enum Day{
-        SUNDAY,MONDAY,TUESDAY,WEDENSDAY,THURSDAY,FRIDAY,SATURDAY
+
+
+    public enum Day {
+        SUNDAY, MONDAY, TUESDAY, WEDENSDAY, THURSDAY, FRIDAY, SATURDAY
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
+    }
+
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
     public Grade getGrade() {
@@ -74,7 +100,6 @@ public class Routine {
     }
 
     public Course getCourse() {
-
         return course;
     }
 
@@ -88,22 +113,6 @@ public class Routine {
 
     public void setTeacher(CourseTeacher teacher) {
         this.teacher = teacher;
-    }
-
-    public long getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(long startTime) {
-        this.startTime = startTime;
-    }
-
-    public long getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(long endTime) {
-        this.endTime = endTime;
     }
 
     public Day getDay() {

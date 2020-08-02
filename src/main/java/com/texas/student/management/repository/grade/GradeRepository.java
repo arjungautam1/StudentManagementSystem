@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public interface GradeRepository extends CrudRepository<Grade,Long> {
-    
 
 
+    void findById(Grade grade);
 }
