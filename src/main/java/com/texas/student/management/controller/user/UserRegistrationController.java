@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @Controller
 @RequestMapping("/userRegistration")
+@CrossOrigin(origins = "http://localhost:3000")
 public class UserRegistrationController {
 
     private UserRegistrationService userRegistrationService;
