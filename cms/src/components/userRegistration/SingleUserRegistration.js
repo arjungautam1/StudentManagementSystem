@@ -7,13 +7,13 @@ const SingleUserRegistration=({item}) =>(
         <div className="col s12 m6">
             <div className="card blue-grey darken-1">
                 <div className="card-content white-text">
-                    <span className="card-title">Name : {item.createdBy} </span>
+                    <span className="card-title">UserRegistration Id : {item.id} </span>
 
                 </div>
                 <div className="card-action">
-
-                    <p>E-mail : {item.email}</p>
-                    {/*<p>Password: {item.password}</p>*/}
+                    <p>Created By : {item.createdBy}</p>
+                    <p>User E-mail : {item.email}</p>
+                    <p>Password: {item.password}</p>
                 </div>
 
             </div>

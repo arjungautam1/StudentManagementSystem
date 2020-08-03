@@ -11,6 +11,8 @@ import java.util.Optional;
 
 @Controller
 @RequestMapping("/address")
+@CrossOrigin(origins = "http://localhost:3000")
+
 public class AddressController {
 
     private AddressService addressService;

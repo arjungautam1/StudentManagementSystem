@@ -30,20 +30,20 @@ export default class AddUserRegistration extends Component {
                 <form className="col s12" onSubmit={this.submitContact.bind(this)}>
                     <div className="row">
                         <div className="input-field col s6">
-                            <input placeholder="Created By" ref="createdBy" type="text" className="validate"/>
+                            <input ref="createdBy" type="text" className="validate"/>
                             <label htmlFor="createdBy">Created By</label>
                         </div>
 
                         <div className="row">
                             <div className="input-field col s6">
-                                <input placeholder={"Enter email address"} ref="email" type="email"
+                                <input  ref="email" type="email"
                                        className="validate"/>
                                 <label htmlFor="email">Email</label>
                             </div>
                         </div>
 
                         <div className="input-field col s6">
-                            <input placeholder="Enter password" ref="password" type="password" className="validate"/>
+                            <input  ref="password" type="password" className="validate"/>
                             <label htmlFor="password">password</label>
                         </div>
                     </div>
@@ -54,7 +54,9 @@ export default class AddUserRegistration extends Component {
                     </div>
 
 
+
                 </form>
+
             </div>
 
         )
